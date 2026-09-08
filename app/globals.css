@@ -1,0 +1,52 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-paper: #faf8f4;
+  --color-surface: #ffffff;
+  --color-ink: #14161a;
+  --color-muted: #6c7078;
+  --color-line: #e8e3da;
+  --color-accent: #0b6e63;
+  --color-accent-ink: #08544c;
+  --color-accent-soft: #e7f2f0;
+  --color-wrong: #b0413a;
+  --color-wrong-soft: #fbeceb;
+
+  --radius-card: 1.25rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Older iOS Safari (< 15.4) does not know 100dvh — vh first, then dvh */
+.min-h-screen-safe {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  /* Prevent accidental "pull to refresh" during the test */
+  overscroll-behavior-y: contain;
+}
+
+/* Telefonda tanlash/uzun bosishdan kelib chiqadigan xalaqitlarni kamaytiradi */
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
